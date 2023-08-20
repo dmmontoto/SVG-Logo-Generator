@@ -45,7 +45,22 @@ async function main() {
 
         // Check user's answers
         if (shapeOptions.text.length > 3) {
-            console.log('Please enter only three or less than three characters!');
+            console.log('Please enter no more than three characters!');
+            return;
+        }
+
+        if (!isValidColorKeyword(shapeOptions.textColor)) {
+            console.log('Please enter a valid text color!');
+            return;
+        }
+
+        if (!isValidColorKeyword(shapeOptions.color)) {
+            console.log('Please enter a valid color!');
+            return;
+        }
+
+        if (!isValidColorKeyword(shapeOptions.backgroundColor)) {
+            console.log('Please enter a valid background color!');
             return;
         }
 
@@ -80,6 +95,44 @@ async function main() {
     } catch (error) {
         console.error('An error occurred:', error);
     }
+}
+
+const validColorKeywords = [
+    'aliceblue', 'antiquewhite', 'aqua', 'aquamarine', 'azure',
+    'beige', 'bisque', 'black', 'blanchedalmond', 'blue', 'blueviolet',
+    'brown', 'burlywood', 'cadetblue', 'chartreuse', 'chocolate',
+    'coral', 'cornflowerblue', 'cornsilk', 'crimson', 'cyan',
+    'darkblue', 'darkcyan', 'darkgoldenrod', 'darkgray', 'darkgreen',
+    'darkgrey', 'darkkhaki', 'darkmagenta', 'darkolivegreen', 'darkorange',
+    'darkorchid', 'darkred', 'darksalmon', 'darkseagreen', 'darkslateblue',
+    'darkslategray', 'darkslategrey', 'darkturquoise', 'darkviolet',
+    'deeppink', 'deepskyblue', 'dimgray', 'dimgrey', 'dodgerblue',
+    'firebrick', 'floralwhite', 'forestgreen', 'fuchsia', 'gainsboro',
+    'ghostwhite', 'gold', 'goldenrod', 'gray', 'green',
+    'greenyellow', 'grey', 'honeydew', 'hotpink', 'indianred',
+    'indigo', 'ivory', 'khaki', 'lavender', 'lavenderblush',
+    'lawngreen', 'lemonchiffon', 'lightblue', 'lightcoral', 'lightcyan',
+    'lightgoldenrodyellow', 'lightgray', 'lightgreen', 'lightgrey', 'lightpink',
+    'lightsalmon', 'lightseagreen', 'lightskyblue', 'lightslategray', 'lightslategrey',
+    'lightsteelblue', 'lightyellow', 'lime', 'limegreen', 'linen',
+    'magenta', 'maroon', 'mediumaquamarine', 'mediumblue', 'mediumorchid',
+    'mediumpurple', 'mediumseagreen', 'mediumslateblue', 'mediumspringgreen', 'mediumturquoise',
+    'mediumvioletred', 'midnightblue', 'mintcream', 'mistyrose', 'moccasin',
+    'navajowhite', 'navy', 'oldlace', 'olive', 'olivedrab',
+    'orange', 'orangered', 'orchid', 'palegoldenrod', 'palegreen',
+    'paleturquoise', 'palevioletred', 'papayawhip', 'peachpuff', 'peru',
+    'pink', 'plum', 'powderblue', 'purple', 'rebeccapurple',
+    'red', 'rosybrown', 'royalblue', 'saddlebrown', 'salmon',
+    'sandybrown', 'seagreen', 'seashell', 'sienna', 'silver',
+    'skyblue', 'slateblue', 'slategray', 'slategrey', 'snow',
+    'springgreen', 'steelblue', 'tan', 'teal', 'thistle',
+    'tomato', 'turquoise', 'violet', 'wheat', 'white',
+    'whitesmoke', 'yellow', 'yellowgreen'
+];
+
+function isValidColorKeyword(color) {
+    const lowerCaseColor = color.toLowerCase();
+    return validColorKeywords.includes(lowerCaseColor);
 }
 
 main();
