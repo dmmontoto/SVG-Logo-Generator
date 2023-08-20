@@ -43,25 +43,46 @@ async function main() {
     try {
         const shapeOptions = await inquirer.prompt(questions);
 
+        shapeOptions.textColor = shapeOptions.textColor.toLowerCase();
+        shapeOptions.color = shapeOptions.color.toLowerCase();
+        shapeOptions.backgroundColor = shapeOptions.backgroundColor.toLowerCase();
+        console.log(shapeOptions.textColor);
+        console.log(shapeOptions.color);
+        console.log(shapeOptions.backgroundColor);
+
+        console.log(!isValidColorKeyword('red'));
+
         // Check user's answers
         if (shapeOptions.text.length > 3) {
             console.log('Please enter no more than three characters!');
             return;
         }
 
-        if (!isValidColorKeyword(shapeOptions.textColor)) {
+        if (!isValidColorKeyword(shapeOptions.textColor) && !isValidHexColor(shapeOptions.textColor)) {
             console.log('Please enter a valid text color!');
             return;
+        } else {
+            if (isValidHexColor(shapeOptions.textColor) && shapeOptions.textColor.length === 6) {
+                shapeOptions.textColor = '#' + shapeOptions.textColor;
+            }
         }
 
-        if (!isValidColorKeyword(shapeOptions.color)) {
+        if (!isValidColorKeyword(shapeOptions.color) && !isValidHexColor(shapeOptions.color)) {
             console.log('Please enter a valid color!');
             return;
+        } else {
+            if (isValidHexColor(shapeOptions.color) && shapeOptions.color.length === 6) {
+                shapeOptions.color = '#' + shapeOptions.color;
+            }
         }
 
-        if (!isValidColorKeyword(shapeOptions.backgroundColor)) {
+        if (!isValidColorKeyword(shapeOptions.backgroundColor) && !isValidHexColor(shapeOptions.backgroundColor)) {
             console.log('Please enter a valid background color!');
             return;
+        } else {
+            if (isValidHexColor(shapeOptions.backgroundColor) && shapeOptions.backgroundColor.length === 6) {
+                shapeOptions.backgroundColor = '#' + shapeOptions.backgroundColor;
+            }
         }
 
         let shape;
@@ -131,8 +152,22 @@ const validColorKeywords = [
 ];
 
 function isValidColorKeyword(color) {
-    const lowerCaseColor = color.toLowerCase();
-    return validColorKeywords.includes(lowerCaseColor);
+    // const option = color;
+    // optionLowerCase = option.toLowerCase();
+    if (validColorKeywords.includes(color)) {
+        return true;
+    }
+    return false;
+}
+
+function isValidHexColor(hexColor) {
+    if (hexColor.length === 6 && /^[0-9A-F]{6}$/i.test(hexColor)) {
+        return true;
+    } else if (hexColor.length === 7 && hexColor[0] === '#' && /^[0-9A-F]{6}$/i.test(hexColor.slice(1))) {
+        return true;
+    }
+
+    return false;
 }
 
 main();
