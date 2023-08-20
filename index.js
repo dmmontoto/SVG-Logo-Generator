@@ -1,9 +1,7 @@
 // Include packages needed for this application
 const inquirer = require('inquirer');
 const fs = require('fs');
-const Circle = require('./lib/circle');
-const Square = require('./lib/square');
-const Triangle = require('./lib/triangle');
+const { Circle, Square, Triangle } = require('./lib/shape');
 
 // Create an array of questions for user input
 const questions = [
@@ -46,11 +44,6 @@ async function main() {
         shapeOptions.textColor = shapeOptions.textColor.toLowerCase();
         shapeOptions.color = shapeOptions.color.toLowerCase();
         shapeOptions.backgroundColor = shapeOptions.backgroundColor.toLowerCase();
-        console.log(shapeOptions.textColor);
-        console.log(shapeOptions.color);
-        console.log(shapeOptions.backgroundColor);
-
-        console.log(!isValidColorKeyword('red'));
 
         // Check user's answers
         if (shapeOptions.text.length > 3) {
@@ -152,12 +145,8 @@ const validColorKeywords = [
 ];
 
 function isValidColorKeyword(color) {
-    // const option = color;
-    // optionLowerCase = option.toLowerCase();
-    if (validColorKeywords.includes(color)) {
-        return true;
-    }
-    return false;
+    return validColorKeywords.includes(color);
+
 }
 
 function isValidHexColor(hexColor) {
@@ -166,7 +155,6 @@ function isValidHexColor(hexColor) {
     } else if (hexColor.length === 7 && hexColor[0] === '#' && /^[0-9A-F]{6}$/i.test(hexColor.slice(1))) {
         return true;
     }
-
     return false;
 }
 
