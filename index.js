@@ -1,7 +1,9 @@
 // Include packages needed for this application
 const inquirer = require('inquirer');
 const fs = require('fs');
-const { Circle, Square, Triangle } = require('./lib');
+const Circle = require('./lib/circle');
+const Square = require('./lib/square');
+const Triangle = require('./lib/triangle');
 
 // Create an array of questions for user input
 const questions = [
@@ -42,8 +44,8 @@ async function main() {
         const shapeOptions = await inquirer.prompt(questions);
 
         // Check user's answers
-        if (shapeOptions.text.length === 3) {
-            console.log('working');
+        if (shapeOptions.text.length > 3) {
+            console.log('Please enter only three or less than three characters!');
             return;
         }
 
