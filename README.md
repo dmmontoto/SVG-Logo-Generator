@@ -4,7 +4,7 @@
 
 ## Description
 
-This project is designed to allow business developers and entrepreneurs to create a custom SVG logo, specialized to their needs. The background, shape, and text are all able designed with any availible hexadecimal or keyword color value available in CSS. Following the design formatting, the text is limited to three characters, intended for abbreviations. In this early development, the shapes are limited to circle, square, and triangle. For clarification, the `forTest.js` file is an exact copy of `index.js` without the function call at the end of the file, as it is used in the tests to ensure the program functions without error. 
+This project is designed to allow business developers and entrepreneurs to create a custom SVG logo, specialized to their needs. The background, shape, and text are all able designed with any availible hexadecimal or keyword color value available in CSS. Following the design formatting, the text is limited to three characters, intended for abbreviations. In this early development, the shapes are limited to circle, square, and triangle. For clarification, the `forTest.js` file is an exact copy of `index.js` without the function call at the end of the file, as it is used in the tests to ensure the program functions without error. Check out some designs created by this generator in the examples folder.
 
 ## Table of Contents 
 
@@ -24,9 +24,9 @@ In order to get the environment to run, the user will need to install a couple v
 
 ## Usage
 
-First, the user should open an integrated termianl associated with this repository file. If the installation process is completed, the user needs to type in the command `node index`. The user will then be prompted with five questions in the terminal. The user will be promtped for text (up to three characters), a shape to choose from, and for the color of the text, main shape, and background. Importantly, please note that the user can either type in a color keyword or a six-digit hexadecimal value. Do not worry about whether the user should use a `#` or not because either way, the program will handle the value and ensure the color is registered as `#******`. The following video provides a user-friendly tutorial.
+First, the user should open an integrated termianl associated with this repository file. If the installation process is completed, the user needs to type in the command `node index`. The user will then be prompted with five questions in the terminal. The user will be promtped for text (up to three characters), a shape to choose from, and for the color of the text, main shape, and background. Importantly, please note that the user can either type in a color keyword or a six-digit hexadecimal value. Do not worry about whether the user should use a `#` or not because either way, the program will handle the value and ensure the color is registered as `#******`. The following video will also provide a user-friendly tutorial and show the various ways to input color.
 
-[Tutorial]()
+[Tutorial](https://watch.screencastify.com/v/qhwqU9ufD7AKsV6EiIIj)
 
 ## Credits
 
