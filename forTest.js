@@ -1,7 +1,7 @@
 // *NOTE*
 // This file is an exact copy of index.js. It has the sole purpose of testing the 'async function main()'
 // from index.js in the shape.test.js file. The tests are for ensuring that the prompts are checked and 
-// validated prior to the SVG logo being generated.
+// validated prior to the SVG logo being generated. 
 
 // Include packages needed for this application
 const inquirer = require('inquirer');
